@@ -1,0 +1,15 @@
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\bin\Debug\WorkflowENG.Dal.dll.config
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\bin\Debug\WorkflowENG.Dal.dll
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\bin\Debug\WorkflowENG.Dal.pdb
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\bin\Debug\EntityFramework.dll
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\bin\Debug\EntityFramework.SqlServer.dll
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\bin\Debug\EntityFramework.xml
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\bin\Debug\EntityFramework.SqlServer.xml
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\obj\Debug\WorkflowENG.Dal.csprojAssemblyReference.cache
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\obj\Debug\WorkflowENG.Dal.csproj.CoreCompileInputs.cache
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\obj\Debug\WorkflowENG.Dal.csproj.CopyComplete
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\obj\Debug\WorkflowENG.Dal.dll
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\obj\Debug\WorkflowENG.Dal.pdb
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\obj\Debug\WorkflowENG.Dal.Migrations.FirstAndStart.resources
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\obj\Debug\WorkflowENG.Dal.csproj.GenerateResource.cache
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\obj\Debug\WorkflowENG.Dal.Migrations.AddBaseEntity.resources

@@ -32,3 +32,5 @@ D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\bin\Debug\System.ValueTuple.xml
 D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\bin\Debug\WeakEvent.pdb
 D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\bin\Debug\WeakEvent.xml
 D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\obj\Debug\WorkflowENG.Dal.Migrations.t.resources
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\obj\Debug\WorkflowENG.Dal.Migrations.editflows.resources
+D:\WorkFlowEng\workflowENG\WorkflowENG.Dal\obj\Debug\WorkflowENG.Dal.Migrations.edirflow2.resources

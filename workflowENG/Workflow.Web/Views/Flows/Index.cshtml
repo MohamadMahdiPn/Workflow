@@ -12,49 +12,35 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.SampleForm.Message)
+            @Html.DisplayNameFor(model => model.DataModel.SampleForm.Message)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.WorkflowInstanceId)
+            @Html.DisplayNameFor(model => model.DataModel.WorkflowSchemeName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CurrentStateId)
+            @Html.DisplayNameFor(model => model.DataModel.CurrentStateId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IsDeleted)
+            @Html.DisplayNameFor(model => model.DataModel.CreateDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IsActive)
+            @Html.DisplayNameFor(model => model.DataModel.ModifiedDate)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreateDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RowVersion)
-        </th>
+      
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.DataModels)
     {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.SampleForm.Message)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.WorkflowInstanceId)
+                @Html.DisplayFor(modelItem => item.WorkflowSchemeName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CurrentStateId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsDeleted)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsActive)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreateDate)
@@ -63,10 +49,8 @@
                 @Html.DisplayFor(modelItem => item.ModifiedDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RowVersion)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Move", "CheckForNextStep", new { processId = item.WorkflowInstanceId , id = item.Id }) |
+                @Html.ActionLink("Edit", "Edit","SampleForms", new { id = item.Id }) |
                 @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
             </td>

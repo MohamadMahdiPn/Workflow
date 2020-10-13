@@ -12,6 +12,7 @@ namespace WorkflowENG.Dal.DataModel
         public int SampleFormId { get; set; }
         public SampleForm SampleForm { get; set; }
         public Guid WorkflowInstanceId { get; set; }
-        public int CurrentStateId { get; set; }
+        public string WorkflowSchemeName { get; set; }
+        public string CurrentStateId { get; set; }
     }
 }

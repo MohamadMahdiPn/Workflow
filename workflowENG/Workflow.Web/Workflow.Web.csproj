@@ -173,10 +173,13 @@
     <Compile Include="Controllers\RolesForUsersController.cs" />
     <Compile Include="Controllers\SampleFormsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\WFEngineController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ActionProvider.cs" />
     <Compile Include="Models\workFlowModel.cs" />
+    <Compile Include="Models\WorkflowService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -341,6 +344,8 @@
     <Content Include="Views\Flows\Details.cshtml" />
     <Content Include="Views\Flows\Edit.cshtml" />
     <Content Include="Views\Flows\Index.cshtml" />
+    <Content Include="Views\WFEngine\StartFlow.cshtml" />
+    <Content Include="Views\Flows\CheckForNextStep.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

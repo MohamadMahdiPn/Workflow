@@ -93,6 +93,14 @@
     <Compile Include="Migrations\202010110917107_t.designer.cs">
       <DependentUpon>202010110917107_t.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010130820079_editflows.cs" />
+    <Compile Include="Migrations\202010130820079_editflows.designer.cs">
+      <DependentUpon>202010130820079_editflows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010131037250_edirflow2.cs" />
+    <Compile Include="Migrations\202010131037250_edirflow2.designer.cs">
+      <DependentUpon>202010131037250_edirflow2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
@@ -101,6 +109,7 @@
     <Compile Include="ViewModels\FlowViewModel.cs" />
     <Compile Include="ViewModels\RolesViewModel.cs" />
     <Compile Include="ViewModels\SampleFormViewModel.cs" />
+    <Compile Include="ViewModels\TempFlowViewModel.cs" />
     <Compile Include="ViewModels\UsersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +128,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010110917107_t.resx">
       <DependentUpon>202010110917107_t.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010130820079_editflows.resx">
+      <DependentUpon>202010130820079_editflows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010131037250_edirflow2.resx">
+      <DependentUpon>202010131037250_edirflow2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

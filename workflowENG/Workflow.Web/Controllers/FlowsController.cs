@@ -6,17 +6,21 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Workflow.Web.Models;
 using WorkflowENG.Dal.DataModel;
 using WorkflowENG.Dal.Repository;
 using WorkflowENG.Dal.ViewModels;
 
 namespace Workflow.Web.Controllers
-{
+{ 
+    [Obsolete]
     public class FlowsController : Controller
     {
         //private WFEDbContext db = new WFEDbContext();
         private UnitWork unit = new UnitWork();
-        // GET: Flows
+        private WorkflowService service = new WorkflowService();
+        
+
         public ActionResult Index()
         {
             FlowViewModel viewModel = new FlowViewModel();
@@ -46,6 +50,7 @@ namespace Workflow.Web.Controllers
         {
             FlowViewModel viewModel = new FlowViewModel();
             viewModel.SampleForms = unit.Form.GetAll().ToList();
+            viewModel.SchemeCodeList = service.GetSchemes();
             //ViewBag.SampleFormId = new SelectList(db.SampleForms, "Id", "Message");
             return View(viewModel);
         }
@@ -56,6 +61,7 @@ namespace Workflow.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                flows.DataModel.WorkflowInstanceId = service.StartFlow(flows.DataModel.WorkflowSchemeName);
                 unit.Flows.Insert(flows.DataModel);
                 unit.Flows.Save();
                 return RedirectToAction("Index");
@@ -135,6 +141,27 @@ namespace Workflow.Web.Controllers
                unit.Flows.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult CheckForNextStep(string processId , int id)
+        {
+
+            FlowViewModel viewModel = new FlowViewModel();
+            viewModel.DataModel = unit.Flows.GetById(id);
+            viewModel.CommandList = service.WorkflowCommands(Guid.Parse(processId), null);
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult CheckForNextStep(FlowViewModel flows)
+        {
+            var commands = service.WorkflowCommands(flows.DataModel.WorkflowInstanceId, null);
+            var command = commands.FirstOrDefault(c => c.CommandName == flows.DataModel.CurrentStateId);
+            workflowModel.Runtime.ExecuteCommand(flows.DataModel.WorkflowInstanceId, null, null, command);
+            flows.DataModel.CurrentStateId = workflowModel.Runtime.GetCurrentState(flows.DataModel.WorkflowInstanceId, null).Name;
+            unit.Flows.Update(flows.DataModel);
+            unit.Flows.Save();
+            return RedirectToAction("Index");
         }
     }
 }

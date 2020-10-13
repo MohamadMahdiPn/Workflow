@@ -6,16 +6,20 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
+using Workflow.Web.Models;
 using WorkflowENG.Dal.DataModel;
 using WorkflowENG.Dal.Repository;
 using WorkflowENG.Dal.ViewModels;
 
 namespace Workflow.Web.Controllers
 {
+    [Obsolete]
     public class SampleFormsController : Controller
     {
         //private WFEDbContext db = new WFEDbContext();
         UnitWork unit = new UnitWork();
+        WorkflowService service = new WorkflowService();
         // GET: SampleForms
         public ActionResult Index()
         {
@@ -58,6 +62,8 @@ namespace Workflow.Web.Controllers
             return View(sampleForm);
         }
 
+
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -66,6 +72,7 @@ namespace Workflow.Web.Controllers
             }
             SampleFormViewModel viewModel = new SampleFormViewModel();
             viewModel.DataModel = unit.Form.GetById(id);
+            
             if (viewModel.DataModel == null)
             {
                 return HttpNotFound();

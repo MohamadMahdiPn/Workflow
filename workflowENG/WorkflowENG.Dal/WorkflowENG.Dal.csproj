@@ -89,14 +89,22 @@
     <Compile Include="Migrations\202010110608052_AddBaseEntity.designer.cs">
       <DependentUpon>202010110608052_AddBaseEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010110917107_t.cs" />
+    <Compile Include="Migrations\202010110917107_t.designer.cs">
+      <DependentUpon>202010110917107_t.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\UnitWork.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\FlowViewModel.cs" />
+    <Compile Include="ViewModels\RolesViewModel.cs" />
+    <Compile Include="ViewModels\SampleFormViewModel.cs" />
+    <Compile Include="ViewModels\UsersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -108,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010110608052_AddBaseEntity.resx">
       <DependentUpon>202010110608052_AddBaseEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010110917107_t.resx">
+      <DependentUpon>202010110917107_t.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

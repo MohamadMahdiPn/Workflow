@@ -1,0 +1,55 @@
+﻿@model WorkflowENG.Dal.ViewModels.SampleFormViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DataModel.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataModel.Answer)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.DataModel.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataModel.ModifiedDate)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.DataModels) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Message)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Answer)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+     
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

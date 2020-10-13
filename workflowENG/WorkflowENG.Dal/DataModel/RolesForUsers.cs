@@ -12,6 +12,6 @@ namespace WorkflowENG.Dal.DataModel
         public string RoleName { get; set; }
         public int ParentId { get; set; }
         public ICollection<Users> Users { get; set; }
-        public ICollection<RolesForUsers> ParentRoles { get; set; }
+       // public ICollection<RolesForUsers> ParentRoles { get; set; }
     }
 }

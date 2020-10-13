@@ -4,9 +4,11 @@ using WorkflowENG.Dal.DataModel;
 using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
+
 namespace WorkflowENG.Dal.Repository
 {
-    public class Repository<Tentity>where Tentity : BaseEntity
+    public class Repository<Tentity> where Tentity : BaseEntity
     {
         private WFEDbContext context = new WFEDbContext();
         private readonly DbSet<Tentity> _dbset;
@@ -29,10 +31,11 @@ namespace WorkflowENG.Dal.Repository
         {
             return _dbset.Find(Id);
         }
-        public virtual void Insert(Tentity entity, string UserCreator)
+        public virtual void Insert(Tentity entity)
         {
             entity.CreateDate = DateTime.Now;
             _dbset.Add(entity);
+            
         }
         public virtual void Update(Tentity entity)
         {
@@ -54,12 +57,7 @@ namespace WorkflowENG.Dal.Repository
             var entity = GetById(Id);
             Delete(entity);
         }
-        public virtual void SoftDelete(object Id)
-        {
-            var entity = GetById(Id);
-            entity.IsDeleted = true;
-            Update(entity);
-        }
+        
         public virtual void Save()
         {
             context.SaveChanges();
@@ -67,6 +65,18 @@ namespace WorkflowENG.Dal.Repository
         public virtual void Dispose()
         {
             context.Dispose();
+        }
+        public virtual bool Count(int Id)
+        {
+            var Count = GetAll(x => x.Id == Id).ToList();
+            if (Count.Count >= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

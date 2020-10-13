@@ -1,0 +1,82 @@
+﻿@model WorkflowENG.Dal.ViewModels.UsersViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Users</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.Family)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.Family)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.RoleId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.RoleId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.GUID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.GUID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.IsDeleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.ModifiedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DataModel.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

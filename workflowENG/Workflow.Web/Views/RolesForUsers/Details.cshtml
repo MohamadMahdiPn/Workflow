@@ -1,0 +1,66 @@
+﻿@model WorkflowENG.Dal.ViewModels.RolesViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RolesForUsers</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.RoleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.RoleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.ParentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.ParentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.IsDeleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.ModifiedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DataModel.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

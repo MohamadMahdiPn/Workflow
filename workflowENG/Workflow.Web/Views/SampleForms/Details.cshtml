@@ -1,0 +1,74 @@
+﻿@model WorkflowENG.Dal.ViewModels.SampleFormViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SampleForm</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.Message)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.Answer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.Answer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.IsDeleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.ModifiedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataModel.RowVersion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataModel.RowVersion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DataModel.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

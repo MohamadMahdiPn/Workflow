@@ -13,6 +13,7 @@ using System.Text;
 using System.Web.Mvc;
 using System.Xml.Linq;
 using WorkflowRuntime = OptimaJet.Workflow.Core.Runtime.WorkflowRuntime;
+using Workflow.Web.Models;
 
 namespace WF.Sample.Controllers
 {
@@ -22,7 +23,8 @@ namespace WF.Sample.Controllers
         {
             return View();
         }
-        
+
+        [Obsolete]
         public ActionResult API()
         {
             Stream filestream = null;
@@ -30,39 +32,32 @@ namespace WF.Sample.Controllers
                 filestream = Request.Files[0].InputStream;
 
             var pars = new NameValueCollection();
-            pars.Add(Request.QueryString);
-
+            pars.Add(Request.Params);
+            
             if(Request.HttpMethod.Equals("POST", StringComparison.InvariantCultureIgnoreCase))
             {
                 var parsKeys = pars.AllKeys;
-                //foreach (var key in Request.Form.AllKeys)
-                foreach (string key in Request.Form.Keys)
+                foreach (var key in Request.Form.AllKeys)
                 {
                     if (!parsKeys.Contains(key))
                     {
-                        pars.Add(key, Request.Unvalidated[key]);
+                        pars.Add(Request.Form);
                     }
                 }
             }
 
-            var res = WorkflowInit.Runtime.DesignerAPI(pars, out bool hasError, filestream, true);
+            var res = getRuntime.DesignerAPI(pars, filestream, true);
             var operation = pars["operation"].ToLower();
-            if (operation == "downloadscheme" && !hasError)
-                return File(Encoding.UTF8.GetBytes(res), "text/xml");
-            else if (operation == "downloadschemebpmn" && !hasError)
-                return File(UTF8Encoding.UTF8.GetBytes(res), "text/xml");
+            if (operation == "downloadscheme")
+                return File(Encoding.UTF8.GetBytes(res), "text/xml", "scheme.xml");
+	        else if (operation == "downloadschemebpmn")
+                return File(UTF8Encoding.UTF8.GetBytes(res), "text/xml", "scheme.bpmn");
 
             return Content(res);
         }
 
-      private WorkflowRuntime getRuntime
-        {
-            get
-            {
-                //INIT YOUR RUNTIME HERE
-                return null;
-            }
-        }
+        [Obsolete]
+        private WorkflowRuntime getRuntime => workflowModel.Runtime;
     }
 }
 

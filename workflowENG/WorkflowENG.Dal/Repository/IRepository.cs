@@ -11,10 +11,11 @@ namespace WorkflowENG.Dal.Repository
         IQueryable<Tentity> GetAll();
         Tentity GetById(int Id);
         Tentity Get(Tentity tentity);
-        void Insert(Tentity tentity);
+        bool Insert(Tentity tentity);
         void Update(Tentity tentity);
         void Delete(int Id);
         void Delete(Tentity tentity);
+        bool Count(int Id);
 
     }
 }

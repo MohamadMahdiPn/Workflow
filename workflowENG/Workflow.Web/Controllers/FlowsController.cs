@@ -1,4 +1,7 @@
-﻿using System;
+﻿using OptimaJet.Workflow.Core.Model;
+using OptimaJet.Workflow.Core.Runtime;
+using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -12,14 +15,14 @@ using WorkflowENG.Dal.Repository;
 using WorkflowENG.Dal.ViewModels;
 
 namespace Workflow.Web.Controllers
-{ 
+{
     [Obsolete]
     public class FlowsController : Controller
     {
         //private WFEDbContext db = new WFEDbContext();
         private UnitWork unit = new UnitWork();
         private WorkflowService service = new WorkflowService();
-        
+
 
         public ActionResult Index()
         {
@@ -86,7 +89,7 @@ namespace Workflow.Web.Controllers
             {
                 return HttpNotFound();
             }
-           
+
             // ViewBag.SampleFormId = new SelectList(db.SampleForms, "Id", "Message", flows.SampleFormId);
             return View(viewModel);
         }
@@ -101,7 +104,7 @@ namespace Workflow.Web.Controllers
                 unit.Flows.Save();
                 return RedirectToAction("Index");
             }
-            flows.SampleForms = unit.Form.GetAll().ToList(); 
+            flows.SampleForms = unit.Form.GetAll().ToList();
             // ViewBag.SampleFormId = new SelectList(db.SampleForms, "Id", "Message", flows.SampleFormId);
             return View(flows);
         }
@@ -138,12 +141,12 @@ namespace Workflow.Web.Controllers
         {
             if (disposing)
             {
-               unit.Flows.Dispose();
+                unit.Flows.Dispose();
             }
             base.Dispose(disposing);
         }
 
-        public ActionResult CheckForNextStep(string processId , int id)
+        public ActionResult CheckForNextStep(string processId, int id)
         {
 
             FlowViewModel viewModel = new FlowViewModel();
@@ -155,10 +158,22 @@ namespace Workflow.Web.Controllers
         [HttpPost]
         public ActionResult CheckForNextStep(FlowViewModel flows)
         {
+           
+            var p = workflowModel.Runtime.EnableCodeActions();
+            var d = workflowModel.Runtime.WithActionProvider(new ActionProvider());
+            
+            var ss = workflowModel.Runtime.GetProcessInstanceAndFillProcessParameters(flows.DataModel.WorkflowInstanceId);
+            var vv = ss.CurrentActivity.Implementation;
+            foreach (var item in vv)
+            {
+                workflowModel.Runtime.ActionProvider.ExecuteAction(item.ActionName, ss, workflowModel.Runtime, null);
+            }
+
             var commands = service.WorkflowCommands(flows.DataModel.WorkflowInstanceId, null);
             var command = commands.FirstOrDefault(c => c.CommandName == flows.DataModel.CurrentStateId);
             workflowModel.Runtime.ExecuteCommand(flows.DataModel.WorkflowInstanceId, null, null, command);
             flows.DataModel.CurrentStateId = workflowModel.Runtime.GetCurrentState(flows.DataModel.WorkflowInstanceId, null).Name;
+
             unit.Flows.Update(flows.DataModel);
             unit.Flows.Save();
             return RedirectToAction("Index");

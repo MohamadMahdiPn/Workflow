@@ -7,7 +7,7 @@ using WorkflowENG.Dal.DataModel;
 
 namespace WorkflowENG.Dal.Repository
 {
-    public class UnitWork
+    public class UnitWork: IUnitWork
     {
         private WFEDbContext context = new WFEDbContext();
         private Repository<Flows> FlowsRepository;

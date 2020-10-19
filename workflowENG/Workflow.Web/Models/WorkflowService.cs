@@ -8,7 +8,7 @@ using System.Web;
 namespace Workflow.Web.Models
 {  
     [Obsolete]
-    public class WorkflowService
+    public class WorkflowService: IWorkflowService
     {
       
         public List<string> GetSchemes()

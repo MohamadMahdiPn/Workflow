@@ -103,6 +103,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\IUnitWork.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\UnitWork.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />

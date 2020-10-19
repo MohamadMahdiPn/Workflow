@@ -20,9 +20,13 @@ namespace Workflow.Web.Controllers
     public class FlowsController : Controller
     {
         //private WFEDbContext db = new WFEDbContext();
-        private UnitWork unit = new UnitWork();
-        private WorkflowService service = new WorkflowService();
-
+        private IUnitWork unit;
+        private IWorkflowService service;
+        public FlowsController(UnitWork Unit , WorkflowService Service)
+        {
+            service = Service;
+            unit = Unit;
+        }
 
         public ActionResult Index()
         {

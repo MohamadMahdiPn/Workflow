@@ -18,9 +18,13 @@ namespace Workflow.Web.Controllers
     public class SampleFormsController : Controller
     {
         //private WFEDbContext db = new WFEDbContext();
-        UnitWork unit = new UnitWork();
-        WorkflowService service = new WorkflowService();
-        // GET: SampleForms
+        private IUnitWork unit;
+        private IWorkflowService service;
+        public SampleFormsController(UnitWork Unit, WorkflowService Service)
+        {
+            service = Service;
+            unit = Unit;
+        }
         public ActionResult Index()
         {
             SampleFormViewModel viewModel = new SampleFormViewModel();

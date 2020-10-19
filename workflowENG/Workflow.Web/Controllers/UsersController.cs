@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Workflow.Web.Models;
 using WorkflowENG.Dal.DataModel;
 using WorkflowENG.Dal.Repository;
 using WorkflowENG.Dal.ViewModels;
@@ -15,8 +16,16 @@ namespace Workflow.Web.Controllers
     public class UsersController : Controller
     {
         //private WFEDbContext db = new WFEDbContext();
-        private UnitWork unit = new UnitWork();
-        // GET: Users
+        private IUnitWork unit;
+        private IWorkflowService service;
+
+        [Obsolete]
+        public UsersController(UnitWork Unit, WorkflowService Service)
+        {
+            service = Service;
+            unit = Unit;
+        }
+
         public ActionResult Index()
         {
             UsersViewModel viewModel = new UsersViewModel();

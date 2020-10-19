@@ -15,8 +15,12 @@ namespace Workflow.Web.Controllers
     public class RolesForUsersController : Controller
     {
         // private WFEDbContext db = new WFEDbContext();
-        private UnitWork unit = new UnitWork();
+        private IUnitWork unit;
         // GET: RolesForUsers
+        public RolesForUsersController(IUnitWork Unit)
+        {
+            unit = Unit;
+        }
         public ActionResult Index()
         {
             RolesViewModel viewModel = new RolesViewModel();

@@ -109,3 +109,11 @@ D:\WorkFlowEng\workflowENG\Workflow.Web\obj\Debug\Workflow.Web.pdb
 D:\WorkFlowEng\workflowENG\Workflow.Web\bin\WorkflowENG.Dal.dll
 D:\WorkFlowEng\workflowENG\Workflow.Web\bin\WorkflowENG.Dal.pdb
 D:\WorkFlowEng\workflowENG\Workflow.Web\bin\WorkflowENG.Dal.dll.config
+D:\WorkFlowEng\workflowENG\Workflow.Web\bin\Microsoft.Practices.ServiceLocation.dll
+D:\WorkFlowEng\workflowENG\Workflow.Web\bin\Microsoft.Practices.Unity.Configuration.dll
+D:\WorkFlowEng\workflowENG\Workflow.Web\bin\Microsoft.Practices.Unity.dll
+D:\WorkFlowEng\workflowENG\Workflow.Web\bin\Unity.Mvc3.dll
+D:\WorkFlowEng\workflowENG\Workflow.Web\bin\Microsoft.Practices.ServiceLocation.pdb
+D:\WorkFlowEng\workflowENG\Workflow.Web\bin\Microsoft.Practices.ServiceLocation.xml
+D:\WorkFlowEng\workflowENG\Workflow.Web\bin\Microsoft.Practices.Unity.xml
+D:\WorkFlowEng\workflowENG\Workflow.Web\bin\Microsoft.Practices.Unity.Configuration.xml

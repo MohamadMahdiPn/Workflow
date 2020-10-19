@@ -3,14 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WorkflowENG.Dal.Repository;
+using WorkflowENG.Dal.ViewModels;
 
 namespace Workflow.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private IUnitWork _unit;
+        public HomeController(IUnitWork Unit)
+        {
+            _unit = Unit;
+        }
         public ActionResult Index()
         {
-            return View();
+
+            UsersViewModel viewModel = new UsersViewModel();
+            viewModel.DataModels = _unit.Users.GetAll().ToList();
+            return View(viewModel);
         }
 
         public ActionResult About()
